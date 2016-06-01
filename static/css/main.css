@@ -1,0 +1,65 @@
+.oa-logo {
+    text-align: center;
+    margin: 320px auto 0;
+}
+
+.oa-logo .logo {
+    width: 380px;
+    height: 320px;
+}
+.oa-logo h2 {
+    font-size: 46px;
+    line-height: 74px;
+    color: #999;
+}
+.icon {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    vertical-align: text-top;
+}
+
+.icon-download {
+    background: url("../img/icon-download.png") no-repeat center;
+    background-size: cover;
+}
+
+.oa-btn-wrap {
+    margin: 0.938rem;
+    text-align: center;
+}
+
+.oa-btn {
+    display: inline-block;
+}
+
+.oa-btn-download,
+.oa-btn-download:hover {
+    width: 1000px;
+    line-height: 157px;
+    margin: 0 auto;
+    border-radius: 15px;
+    background: #008cee;
+    text-align: center;
+    color: #fff;
+}
+
+.oa-page-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.oa-page-home .oa-btn-wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 4.375rem;
+}
+
+.oa-page-home .oa-page-bg {
+    background: #fff;
+    background-size: 100% 100%;
+}

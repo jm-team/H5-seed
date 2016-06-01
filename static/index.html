@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>H5-seed</title>
+    <meta name="keywords" content="H5-seed">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    isIOS = navigator.userAgent.match(/iphone|ipod|ipad/gi),
+                    dpr = isIOS? Math.min(win.devicePixelRatio, 3) : 1,
+                    dpr = window.top === window.self? dpr : 1, //被iframe引用时，禁止缩放
+                    scale = 1 / dpr,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+            docEl.dataset.dpr = win.devicePixelRatio;
+            if(navigator.userAgent.match(/iphone/gi) && screen.width == 375 && win.devicePixelRatio == 2){
+                docEl.classList.add('iphone6')
+            }
+            if(navigator.userAgent.match(/iphone/gi) && screen.width == 414 && win.devicePixelRatio == 3){
+                docEl.classList.add('iphone6p')
+            }
+            var metaEl = doc.createElement('meta');
+            metaEl.name = 'viewport';
+            metaEl.content = 'initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale;
+            docEl.firstElementChild.appendChild(metaEl);
+            var recalc = function () {
+                var width = docEl.clientWidth;
+                if (width / dpr > 640) {
+                    width = 640 * dpr;
+                }
+                docEl.style.fontSize = 32 * (width / 640) + 'px';
+            };
+            recalc();
+            if (!doc.addEventListener) return;
+             win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/style.min.css" charset="utf-8"/>
+</head>
+<body>
+<div class="oa-page oa-page-home">
+	<div class="oa-content">
+		<div class="oa-logo">
+			<h1><img src="../static/img/logo.png" alt="JUMORE" class="logo"/></h1>
+			<h2>自动化办公系统 2.0</h2>
+		</div>
+		<div class="oa-btn-wrap">
+			<a href="#" class="oa-btn oa-btn-download">下载客户端 <i class="icon icon-download"></i></a>
+		</div>
+	</div>
+	<!-- 最后加载大背景图 -->
+	<div class="oa-page-bg"></div>
+</div>
+
+<!--=E 首页 -->
+<script src="../static/js/zepto1.1.6/zepto.min.js" charset="utf-8"></script>
+<script>
+	var ua = navigator.userAgent.toLowerCase(),
+			downloadBtn = $('.oa-btn-download');
+
+	if (/MicroMessenger/i.test(ua)) {
+		alert("请在浏览器中打开");
+		downloadBtn.on('tap', function(){
+			if (/iphone|ipad|ipod/.test(ua))
+				alert("请点击右上角，选择在safari浏览器中打开");
+			else
+				alert("请点击右上角，选择在浏览器中打开");
+		});
+	} else if (/iphone|ipad|ipod/.test(ua)) {
+		downloadBtn.attr('href', 'itms-services://?action=download-manifest&url=https://www.cnmsl.cn/OA/app/ios/jumoore_oa_v2.1.5.plist');
+	} else {
+		downloadBtn.attr('href', 'http://www.cnmsl.cn/OA/app/android/jumooreoa2.1.7.apk');
+	}
+</script>
+
+</body>
+</html>
